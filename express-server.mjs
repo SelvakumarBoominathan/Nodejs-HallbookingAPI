@@ -18,10 +18,13 @@ server.get("/", (req, res) => {
 //POST method
 server.post("/", (req, res) => {
   const { body } = req;
-  res.send("<h1>Post method created successfully</h1>"+ `${body}`);
+  console.log(body);
+  res.send({ message: "Post method created successfully" });
 });
 
 //creating a server listener
 server.listen(port, () => {
   console.log("Server is listening on port : " + port + " " + new Date());
 });
+
+// timer : 1.36.42
