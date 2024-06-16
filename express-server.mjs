@@ -6,7 +6,7 @@ const server = express();
 
 //READ method
 server.get("/", (req, res) => {
-  res.send("<h1>Server Created Successfully!</h1>");
+  res.send({ message: "Hellow from server!" });
 });
 
 //create a port
