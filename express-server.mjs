@@ -14,5 +14,5 @@ const port = 8000;
 
 //creating a server listener
 server.listen(port, () => {
-  console.log("Server is listening on port : " + port);
+  console.log("Server is listening on port : " + port + " " + new Date());
 });
