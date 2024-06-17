@@ -5,7 +5,7 @@ import express from "express";
 import { Customers } from "./variables.mjs";
 
 //settingup the server for Customers and assign it to a variable
-const CustomersRouter = express.Router();
+let CustomersRouter = express.Router();
 
 //setting initial Customers status
 
@@ -16,19 +16,19 @@ CustomersRouter.get("/", (req, res) => {
 
 //POST - Add new customer
 CustomersRouter.post("/", (req, res) => {
-  const { body } = req;
+  let { body } = req;
   Customers.push({ id: Date.now().toString, ...body });
   res.send(Customers);
 });
 
 //PUT - update an existing customer
 CustomersRouter.put("/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const { body } = req;
+  let id = parseInt(req.params.id);
+  let { body } = req;
 
   if (Object.keys(body).length > 0) {
-    if (Customers.some((customer) => customer.id === id)) {
-      const index = Customers.findIndex((customer) => customer.id === id);
+    if (Customers.some((customer) => customer.cus_id === id)) {
+      let index = Customers.findIndex((customer) => customer.cus_id === id);
 
       Customers[index] = { ...body, id: id };
       res.send(Customers);
@@ -43,10 +43,10 @@ CustomersRouter.put("/:id", (req, res) => {
 //DELETE - Remove the customer from the list
 
 CustomersRouter.delete("/:id", (req, res) => {
-  const id = parseInt(req.params.id);
+  let id = parseInt(req.params.id);
 
-  if (Customers.filter((customer) => customer.id === id).length > 0) {
-    Customers = Customers.filter((customer) => customer.id !== id);
+  if (Customers.filter((customer) => customer.cus_id === id).length > 0) {
+    Customers = Customers.filter((customer) => customer.cus_id !== id);
     res.send(Customers);
   } else {
     res.status(404).send({ msg: "customer is not in the list!" });

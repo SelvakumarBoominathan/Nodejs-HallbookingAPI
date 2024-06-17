@@ -5,7 +5,7 @@ import express from "express";
 import { Rooms } from "./variables.mjs";
 
 //settingup the server for rooms and assign it to a variable
-const roomsRouter = express.Router();
+let roomsRouter = express.Router();
 
 //setting initial rooms status
 
@@ -16,19 +16,19 @@ roomsRouter.get("/", (req, res) => {
 
 //POST - Add new room
 roomsRouter.post("/", (req, res) => {
-  const { body } = req;
+  let { body } = req;
   Rooms.push({ id: Date.now().toString, ...body });
   res.send(Rooms);
 });
 
 //PUT - update an existing room
 roomsRouter.put("/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const { body } = req;
+  let id = parseInt(req.params.id);
+  let { body } = req;
 
   if (Object.keys(body).length > 0) {
     if (Rooms.some((room) => room.id === id)) {
-      const index = Rooms.findIndex((room) => room.id === id);
+      let index = Rooms.findIndex((room) => room.id === id);
 
       Rooms[index] = { ...body, id: id };
       res.send(Rooms);
