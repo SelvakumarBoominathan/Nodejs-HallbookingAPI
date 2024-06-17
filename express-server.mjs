@@ -2,8 +2,8 @@
 import express from "express";
 
 //importing roomsrouter and customersRouter
-import roomsRouter from "./routes/rooms.mjs";
-import CustomersRouter from "./routes/Customers.mjs";
+import roomsRouter from "./routes/rooms";
+import CustomersRouter from "./routes/Customers";
 
 //create a port
 const port = 8000;
