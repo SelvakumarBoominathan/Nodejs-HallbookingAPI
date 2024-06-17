@@ -51,16 +51,18 @@ roomsRouter.post("/", (req, res) => {
 
 //PUT - update an existing room
 roomsRouter.put("/:id", (req, res) => {
-  const id = req.params;
-  console.log(id);
+  const id = parseInt(req.params.id);
   const { body } = req;
 
   if (Object.keys(body).length > 0) {
-    const index = Rooms.indexOf((room) => room.id === id);
-    console.log(index);
+    if (Rooms.some((room) => room.id === id)) {
+      const index = Rooms.findIndex((room) => room.id === id);
 
-    Rooms[index] = { ...body, id: id };
-    res.send(Rooms);
+      Rooms[index] = { ...body, id: id };
+      res.send(Rooms);
+    } else {
+      res.status(404).send({ msg: "no data available" });
+    }
   } else {
     res.status(400).send({ message: "Please Enter Data to modify." });
   }
@@ -69,13 +71,13 @@ roomsRouter.put("/:id", (req, res) => {
 //DELETE - Remove the room from the list
 
 roomsRouter.delete("/:id", (req, res) => {
-  const id = req.params;
+  const id = parseInt(req.params.id);
 
   if (Rooms.filter((room) => room.id === id).length > 0) {
     Rooms = Rooms.filter((room) => room.id !== id);
     res.send(Rooms);
   } else {
-    res.status(400).send({ msg: "Room is anot in the list!" });
+    res.status(404).send({ msg: "Room is not in the list!" });
   }
 });
 
