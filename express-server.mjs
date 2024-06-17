@@ -1,11 +1,17 @@
 //imporing Express server using ES module
 import express from "express";
 
+//importing roomsrouter
+import roomsRouter from "./routes/rooms.mjs";
+
 //create a port
 const port = 8000;
 
 //creating server
 const server = express();
+
+//using roomsRouter in the main server
+server.use("/rooms", roomsRouter);
 
 //creating middleware
 server.use(express.json());
