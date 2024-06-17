@@ -31,14 +31,11 @@ server.put("/", (req, res) => {
 });
 
 //DELETE method
-server.delete(
-  ("/",
-  (req, res) => {
-    const { body } = req;
-    console.log(body);
-    res.send({ message: "delete method performed well!" });
-  })
-);
+server.delete("/", (req, res) => {
+  const { body } = req;
+  console.log(body);
+  res.send({ message: "delete method performed well!" });
+});
 
 //creating a server listener
 server.listen(port, () => {
