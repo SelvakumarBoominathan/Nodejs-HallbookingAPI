@@ -17,7 +17,7 @@ CustomersRouter.get("/", (req, res) => {
 //POST - Add new customer
 CustomersRouter.post("/", (req, res) => {
   let { body } = req;
-  Customers.push({ id: Date.now().toString, ...body });
+  Customers.push({ id: Date.now().toString(), ...body });
   res.send(Customers);
 });
 
@@ -30,7 +30,7 @@ CustomersRouter.put("/:id", (req, res) => {
     if (Customers.some((customer) => customer.cus_id === id)) {
       let index = Customers.findIndex((customer) => customer.cus_id === id);
 
-      Customers[index] = { ...body, id: id };
+      Customers[index] = { ...body, cus_id: id };
       res.send(Customers);
     } else {
       res.status(404).send({ msg: "no data available" });
@@ -55,3 +55,5 @@ CustomersRouter.delete("/:id", (req, res) => {
 
 //export this routter to use main server
 export default CustomersRouter;
+
+//00.32.38
