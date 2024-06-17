@@ -1,8 +1,9 @@
 //imporing Express server using ES module
 import express from "express";
 
-//importing roomsrouter
+//importing roomsrouter and customersRouter
 import roomsRouter from "./routes/rooms.mjs";
+import CustomersRouter from "./routes/Customers.mjs";
 
 //create a port
 const port = 8000;
@@ -42,6 +43,7 @@ server.delete("/", (req, res) => {
 
 //using roomsRouter in the main server
 server.use("/rooms", roomsRouter);
+server.use("/customer", CustomersRouter);
 
 //creating a server listener
 server.listen(port, () => {

@@ -34,7 +34,7 @@ let Rooms = [
   },
 ];
 
-let customers = [
+let Customers = [
   {
     cus_id: 1,
     Customer_name: "Karthick",
@@ -113,4 +113,4 @@ let customers = [
   },
 ];
 
-export { Rooms, customers };
+export { Rooms, Customers };
