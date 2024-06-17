@@ -11,7 +11,7 @@ const roomsRouter = express.Router();
 
 // GET - get all rooms
 roomsRouter.get("/", (req, res) => {
-  res.send(Rooms);
+  res.send(Rooms);  
 });
 
 //POST - Add new room
