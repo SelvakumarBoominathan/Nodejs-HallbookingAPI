@@ -2,8 +2,8 @@
 import express from "express";
 
 //importing roomsrouter and customersRouter
-import roomsRouter from "./routes/rooms.js";
-import CustomersRouter from "./routes/Customers.js";
+import roomsRouter from "./routes/rooms.mjs";
+import CustomersRouter from "./routes/Customers.mjs";
 
 //create a port
 const port = 8000;
@@ -50,4 +50,3 @@ server.listen(port, () => {
   console.log("Server is listening on port : " + port + " " + new Date());
 });
 
-// timer : 1.36.42

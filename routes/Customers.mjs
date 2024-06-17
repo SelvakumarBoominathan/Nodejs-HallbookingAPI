@@ -2,7 +2,7 @@
 import express from "express";
 
 //import variabledata
-import { Customers } from "./variables.js";
+import { Customers } from "./variables.mjs";
 
 //settingup the server for Customers and assign it to a variable
 const CustomersRouter = express.Router();

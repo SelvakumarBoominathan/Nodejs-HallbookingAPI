@@ -2,7 +2,7 @@
 import express from "express";
 
 //import variabledata
-import { Rooms } from "./variables.js";
+import { Rooms } from "./variables.mjs";
 
 //settingup the server for rooms and assign it to a variable
 const roomsRouter = express.Router();
@@ -11,7 +11,7 @@ const roomsRouter = express.Router();
 
 // GET - get all rooms
 roomsRouter.get("/", (req, res) => {
-  res.send(Rooms);  
+  res.send(Rooms);
 });
 
 //POST - Add new room
@@ -43,7 +43,7 @@ roomsRouter.put("/:id", (req, res) => {
 //DELETE - Remove the room from the list
 
 roomsRouter.delete("/:id", (req, res) => {
-  const id = parseInt(req.params.id);
+  let id = parseInt(req.params.id);
 
   if (Rooms.filter((room) => room.id === id).length > 0) {
     Rooms = Rooms.filter((room) => room.id !== id);
