@@ -10,9 +10,6 @@ const port = 8000;
 //creating server
 const server = express();
 
-//using roomsRouter in the main server
-server.use("/rooms", roomsRouter);
-
 //creating middleware
 server.use(express.json());
 
@@ -42,6 +39,9 @@ server.delete("/", (req, res) => {
   console.log(body);
   res.send({ message: "delete method performed well!" });
 });
+
+//using roomsRouter in the main server
+server.use("/rooms", roomsRouter);
 
 //creating a server listener
 server.listen(port, () => {
