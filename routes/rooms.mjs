@@ -1,41 +1,13 @@
 // import express
 import express from "express";
 
+//import variabledata
+import { Rooms } from "./variables.js";
+
 //settingup the server for rooms and assign it to a variable
 const roomsRouter = express.Router();
 
 //setting initial rooms status
-
-let Rooms = [
-  {
-    id: 1,
-    type: "A/C",
-    size: "Normal",
-    availability: "yes",
-    price: "1500",
-  },
-  {
-    id: 2,
-    type: "non_A/C",
-    size: "delux",
-    availability: "no",
-    price: "1500",
-  },
-  {
-    id: 3,
-    type: "non_A/C",
-    size: "Normal",
-    availability: "yes",
-    price: "1000",
-  },
-  {
-    id: 4,
-    type: "A/C",
-    size: "delux",
-    availability: "yes",
-    price: "2000",
-  },
-];
 
 // GET - get all rooms
 roomsRouter.get("/", (req, res) => {
