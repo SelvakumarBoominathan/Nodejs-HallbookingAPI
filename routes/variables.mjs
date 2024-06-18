@@ -5,32 +5,68 @@ let Rooms = [
     type: "A/C",
     Room_Name: "East",
     size: "Normal",
-    availability: "yes",
+    status: "Not Booked",
     price: "1500",
+    Booking_details: [
+      {
+        cus_id: "",
+        Customer_name: "",
+        Date: "",
+        Start_Time: "",
+        End_Time: "",
+      },
+    ],
   },
   {
     id: 2,
     Room_Name: "West",
     type: "non_A/C",
     size: "delux",
-    availability: "no",
+    status: "Not Booked",
     price: "1500",
+    Booking_details: [
+      {
+        cus_id: "",
+        Customer_name: "",
+        Date: "",
+        Start_Time: "",
+        End_Time: "",
+      },
+    ],
   },
   {
     id: 3,
     Room_Name: "North",
     type: "non_A/C",
     size: "Normal",
-    availability: "yes",
+    status: "Not Booked",
     price: "1000",
+    Booking_details: [
+      {
+        cus_id: "",
+        Customer_name: "",
+        Date: "",
+        Start_Time: "",
+        End_Time: "",
+      },
+    ],
   },
   {
     id: 4,
     Room_Name: "South",
     type: "A/C",
     size: "delux",
-    availability: "yes",
+    status: "Not Booked",
     price: "2000",
+    Booking_details: [
+      {
+        cus_id: "",
+        Customer_name: "",
+        Date: "",
+        Start_Time: "",
+        End_Time: "",
+      },
+    ],
   },
 ];
 
