@@ -1,7 +1,7 @@
 // variables for Rooms
 let Rooms = [
   {
-    id: 1,
+    id: "1",
     type: "A/C",
     room_Name: "East",
     size: "Normal",
@@ -11,7 +11,7 @@ let Rooms = [
     booking_details: [],
   },
   {
-    id: 2,
+    id: "2",
     room_Name: "West",
     type: "non_A/C",
     size: "delux",
@@ -21,7 +21,7 @@ let Rooms = [
     booking_details: [],
   },
   {
-    id: 3,
+    id: "3",
     room_Name: "North",
     type: "non_A/C",
     size: "Normal",
@@ -31,7 +31,7 @@ let Rooms = [
     booking_details: [],
   },
   {
-    id: 4,
+    id: "4",
     room_Name: "South",
     type: "A/C",
     size: "delux",
@@ -126,3 +126,7 @@ let Customers = [
 ];
 
 export { Rooms, Customers };
+
+// module.exports = Customers;
+
+// module.exports = Rooms;

@@ -3,6 +3,7 @@ import express from "express";
 
 //import variabledata
 import { Customers } from "./variables.mjs";
+// const Customers = require("./variables.js");
 
 //settingup the server for Customers and assign it to a variable
 let CustomersRouter = express.Router();
@@ -27,8 +28,10 @@ CustomersRouter.put("/:id", (req, res) => {
   let { body } = req;
 
   if (Object.keys(body).length > 0) {
-    if (Customers.some((customer) => customer.cus_id === id)) {
-      let index = Customers.findIndex((customer) => customer.cus_id === id);
+    if (Customers.some((customer) => parseInt(customer.cus_id) === id)) {
+      let index = Customers.findIndex(
+        (customer) => parseInt(customer.cus_id) === id
+      );
 
       Customers[index] = { ...body, cus_id: id };
       res.send(Customers);
@@ -43,17 +46,24 @@ CustomersRouter.put("/:id", (req, res) => {
 //DELETE - Remove the customer from the list
 
 CustomersRouter.delete("/:id", (req, res) => {
-  let id = parseInt(req.params.id);
+  let { id } = req.params;
 
-  if (Customers.filter((customer) => customer.cus_id === id).length > 0) {
-    Customers = Customers.filter((customer) => customer.cus_id !== id);
-    res.send(Customers);
+  // Assuming cus_id is a number, convert id to the same type for comparison
+  id = parseInt(id); // Convert id to integer if cus_id is numeric
+
+  let filteredCustomer = Customers.filter((customer) => customer.cus_id === id);
+
+  if (filteredCustomer.length > 0) {
+    let newCustomersList = Customers.filter(
+      (customer) => customer.cus_id !== id
+    );
+    // Customers = newCustomersList;
+    // added to the new list. since it is not aloowing to reassigned in module export
+    res.send(newCustomersList);
   } else {
-    res.status(404).send({ msg: "customer is not in the list!" });
+    res.status(400).send({ msg: "Customer is not in the list!" });
   }
 });
 
 //export this routter to use main server
 export default CustomersRouter;
-
-//00.32.38
