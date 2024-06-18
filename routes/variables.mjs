@@ -8,15 +8,7 @@ let Rooms = [
     status: "Not Booked",
     price: "1500",
     booked_cus_list: [],
-    booking_details: [
-      {
-        cus_id: "",
-        customer_name: "",
-        date: "",
-        start_Time: "",
-        end_Time: "",
-      },
-    ],
+    booking_details: [],
   },
   {
     id: 2,
@@ -26,15 +18,7 @@ let Rooms = [
     status: "Not Booked",
     price: "1500",
     booked_cus_list: [],
-    booking_details: [
-      {
-        cus_id: "",
-        customer_name: "",
-        date: "",
-        start_Time: "",
-        end_Time: "",
-      },
-    ],
+    booking_details: [],
   },
   {
     id: 3,
@@ -44,15 +28,7 @@ let Rooms = [
     status: "Not Booked",
     price: "1000",
     booked_cus_list: [],
-    booking_details: [
-      {
-        cus_id: "",
-        customer_name: "",
-        date: "",
-        start_Time: "",
-        end_Time: "",
-      },
-    ],
+    booking_details: [],
   },
   {
     id: 4,
@@ -62,15 +38,7 @@ let Rooms = [
     status: "Not Booked",
     price: "2000",
     booked_cus_list: [],
-    booking_details: [
-      {
-        cus_id: "",
-        customer_name: "",
-        date: "",
-        start_Time: "",
-        end_Time: "",
-      },
-    ],
+    booking_details: [],
   },
 ];
 
@@ -79,6 +47,7 @@ let Customers = [
     cus_id: 1,
     customer_name: "Karthick",
     date: "11-Jan-2024",
+    stay_duration: 10,
     booking_details: [
       {
         room_Name: "South",
@@ -102,6 +71,7 @@ let Customers = [
     cus_id: 2,
     customer_name: "Mano",
     date: "11-Jan-2024",
+    stay_duration: 10,
     booking_details: [
       {
         room_Name: "East",
@@ -125,6 +95,7 @@ let Customers = [
     cus_id: 3,
     customer_name: "Siva",
     date: "11-Jan-2024",
+    stay_duration: 10,
     booking_details: [
       {
         room_Name: "South",
@@ -140,6 +111,7 @@ let Customers = [
     cus_id: 4,
     customer_name: "Thiru",
     date: "11-Jan-2024",
+    stay_duration: 10,
     booking_details: [
       {
         room_Name: "West",

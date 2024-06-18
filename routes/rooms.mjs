@@ -53,5 +53,40 @@ roomsRouter.delete("/:id", (req, res) => {
   }
 });
 
+//Booking a Room API Setups
+
+roomsRouter.patch("/book-room/:roomID", (req, res) => {
+  const { body } = req;
+  const { cus_id } = body;
+  const { roomID } = req.params;
+
+  const now = new Date();
+  const addedTime = new Date(
+    now.getTime() + parseInt(body.stay_duration) * 60 * 60 * 1000
+  );
+
+  const formattedNow = now.toLocaleString().split(",");
+  let Start_date = period[0];
+  let Start_time = period[1];
+  const formattedAddedTime = addedTime.toLocaleString().split(",");
+  let End_date = period[0];
+  let End_time = period[1];
+
+  let index = Rooms.findIndex((room) => room.id === roomID);
+
+  Rooms[index].booked_cus_list.push(cus_id);
+
+  Rooms[index].booking_details.push({
+    cus_id: cus_id,
+    customer_name: body.customer_name,
+    tart_date: Start_date,
+    start_Time: Start_time,
+    end_date: End_date,
+    end_time: End_time,
+  });
+
+  res.send({ Msg: "Rooms Booked Successfully!" });
+});
+
 //export this routter to use main server
 export default roomsRouter;
