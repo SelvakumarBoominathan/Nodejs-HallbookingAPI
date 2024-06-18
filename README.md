@@ -1,5 +1,7 @@
-## Room Booking API
+# Room Booking API
 
-# Functionality : 
+It is an simple hall booking API end point solution using Express, nodejs, express router
+
+## Functionality : 
 it will not allow already booked room at the same date and time
 
